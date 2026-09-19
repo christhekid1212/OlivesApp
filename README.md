@@ -17,7 +17,7 @@
 
 ## Εγκατάσταση και releases
 
-Δείτε το [RELEASES.md](RELEASES.md) για GitHub Desktop, παραγωγή Setup και δημοσίευση νέων εκδόσεων. Το updates.json χρειάζεται το πραγματικό URL του δημόσιου repository πριν από διανομή. Η τοπική προεπισκόπηση installer δεν είναι ακόμη συνδεδεμένη με online releases.
+Δείτε το [RELEASES.md](RELEASES.md) για GitHub Desktop, παραγωγή Setup και δημοσίευση νέων εκδόσεων. Ο updater είναι συνδεδεμένος με το https://github.com/christhekid1212/OlivesApp. Τα αρχεία του πρώτου release βρίσκονται στο dist/Release-1.0.0 και πρέπει να δημοσιευτούν μαζί στο GitHub Releases. Η ενημέρωση μεταξύ δύο online εκδόσεων δεν έχει δοκιμαστεί ακόμη.
 
 ## Ανάπτυξη
 
