@@ -1,0 +1,9 @@
+bin/
+obj/
+dist/
+.vs/
+.tools/
+Releases/
+artifacts/
+**/Αρχείο/
+self-test-result.txt

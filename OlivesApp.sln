@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlivesApp", "OlivesApp.csproj", "{31649939-34A9-23F3-316C-F9C33FB8BA84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31649939-34A9-23F3-316C-F9C33FB8BA84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31649939-34A9-23F3-316C-F9C33FB8BA84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31649939-34A9-23F3-316C-F9C33FB8BA84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31649939-34A9-23F3-316C-F9C33FB8BA84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F25F515E-CC5B-4A2D-8298-883086F5C466}
+	EndGlobalSection
+EndGlobal
