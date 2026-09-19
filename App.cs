@@ -50,6 +50,7 @@ public sealed class MainWindow : Window
         FontFamily = new FontFamily("Segoe UI"); FontSize = 15;
         Closing += (_, e) => { if (editing && !ConfirmCancel()) e.Cancel = true; };
         Home();
+        ContentRendered += CheckUpdatesOnStartup;
     }
 
     private StackPanel Page(string title, string subtitle)
@@ -83,10 +84,6 @@ public sealed class MainWindow : Window
             catch (Exception ex) { Error(ex); }
         }, false));
         panel.Children.Add(buttons);
-        var maintenance = new WrapPanel { Margin = new Thickness(0, 24, 0, 0) };
-        maintenance.Children.Add(Button("Έλεγχος ενημερώσεων", () => new UpdateWindow { Owner = this }.ShowDialog(), false));
-        maintenance.Children.Add(Button("Εισαγωγή παλιού αρχείου", ImportArchive, false));
-        panel.Children.Add(maintenance);
         panel.Children.Add(new TextBlock { Text = "Έκδοση " + Updates.CurrentVersion, FontSize = 12, Foreground = Brushes.Gray, Margin = new Thickness(0, 12, 0, 0) });
         panel.Children.Add(new TextBlock { Text = "ΤΟΠΙΚΗ ΑΠΟΘΗΚΕΥΣΗ\n" + archive.Folder, FontSize = 12, Foreground = Brushes.Gray, TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 65, 0, 0) });
         var pageContent = (UIElement)Content;
@@ -95,10 +92,24 @@ public sealed class MainWindow : Window
         var closeButton = Button("Κλείσιμο", Close, false);
         closeButton.HorizontalAlignment = HorizontalAlignment.Right;
         closeButton.Margin = new Thickness(38, 12, 38, 28);
-        DockPanel.SetDock(closeButton, Dock.Bottom);
-        layout.Children.Add(closeButton);
+        var footer = new DockPanel();
+        DockPanel.SetDock(closeButton, Dock.Right);
+        footer.Children.Add(closeButton);
+        var importLink = new System.Windows.Documents.Hyperlink(new System.Windows.Documents.Run("Εισαγωγή παλιού αρχείου excel")) { Foreground = green };
+        importLink.Click += (_, _) => ImportArchive();
+        var importText = new TextBlock { Margin = new Thickness(38, 12, 12, 28), VerticalAlignment = VerticalAlignment.Center, FontSize = 13 };
+        importText.Inlines.Add(importLink);
+        footer.Children.Add(importText);
+        DockPanel.SetDock(footer, Dock.Bottom);
+        layout.Children.Add(footer);
         layout.Children.Add(pageContent);
         Content = layout;
+    }
+
+    private void CheckUpdatesOnStartup(object? sender, EventArgs e)
+    {
+        ContentRendered -= CheckUpdatesOnStartup;
+        new UpdateWindow { Owner = this }.ShowDialog();
     }
 
     private void Entry()
